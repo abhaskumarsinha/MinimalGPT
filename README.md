@@ -2,7 +2,7 @@
 <img src="https://user-images.githubusercontent.com/31654395/236275892-300762b4-0640-412a-b9f5-066d748499f2.png" alt="MinimalGPT Logo" width="20%">
 
 
-[[`GPT-1 Paper`](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)] [[`1002 short stories from project guttenberg`](https://www.kaggle.com/datasets/shubchat/1002-short-stories-from-project-guttenberg)] [[`logo.com`](https://wwww.logo.com/)] [[`Transformer - Paper`](https://arxiv.org/abs/1706.03762)] [[`Huggingface Transformers`](https://huggingface.co/docs/transformers/index)] [[`TensorFlow`](https://www.tensorflow.org/)]
+[[`GPT-1 Paper`](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf)] [[`1002 short stories from project guttenberg`](https://www.kaggle.com/datasets/shubchat/1002-short-stories-from-project-guttenberg)] [[`logo.com`](https://wwww.logo.com/)] [[`Transformer - Paper`](https://arxiv.org/abs/1706.03762)] [[`Huggingface Transformers`](https://huggingface.co/docs/transformers/index)] [[`TensorFlow`](https://www.tensorflow.org/)] [[`BPE Tokenizer: subword-nmt`](https://github.com/rsennrich/subword-nmt)]
 
 <p align='justify'>MinimalGPT is a concise, adaptable, and streamlined code framework that encompasses the essential components necessary for the construction, training, inference, and fine-tuning of the GPT model. This framework is implemented exclusively using Keras and TensorFlow, ensuring compatibility and coherence within the broader deep learning ecosystem.</p>
 
