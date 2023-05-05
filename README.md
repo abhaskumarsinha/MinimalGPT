@@ -225,6 +225,9 @@ _________________________________________________________________
 <h2> Results </h2>
 <i>Follow the example folder for Notebooks containing the samples.</i>
 
+<h2> Troubleshooting </h2>
+Feel free to open tickets in the issue tab in case you encounter any error or have any specific feature request in mind.
+
 
 <h2> References/Further Reading </h2>
 
