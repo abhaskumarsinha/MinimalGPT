@@ -180,16 +180,30 @@ a glass of water?” “No, no, no!” She threw herself toward him, her hand fr
 </pre></code>
 
 
----------------------WIP----------------------
-Will complete tomorrow....
 
 <h4> Importing the model into a project </h4>
 
+<p align='justify'>Incorporating the trained models generated through the utilization of MinimalGPT.py into your project is a straightforward process facilitated by importing the MinimalGPT function and configuring it according to the desired specifications. This can be achieved by setting the parameters return_model_and_vectorizer = True or return_model_and_vectorizer_and_output = True within the inference_only = True (Inference Mode) framework. Additionally, the training, creation, and exportation of the model can be accomplished using a similar approach, paralleling the command-line mode. For a comprehensive illustration of these procedures, the accompanying Jupyter Notebook provides an exemplar demonstration.</p>
+<code><pre>
+from MinimalGPT import MinimalGPT
+
+
+model = MinimalGPT(output_length = 200, gpt_input = 10, d_model = 128, h = 8, decoder_stacks = 1, load_tokenizer = './models/tokenizer3.mgt', load_weights = './models/weights3.mgw', inference_only = True, return_model_and_vectorizer_and_output = True)
+</pre></code>
+
 <h2> Implementation Specifications </h2>
+<p align='justify'>The model implemented here differs a little bit in comparision to the original paper implementation. The matrix formed after concatenating the heads of the scaled dot-product output is multiplied by the matrix parameter of size key dimension x d_model. For practical purpose, this little tweak to reduce the number of parameter would lead to a little bit increase in performance due to trainable parameter optimization.</p>
 
 
 <h2> Results <h2>
+Follow the example folder for Notebooks containing the samples.
 
 
 <h2> References/Further Reading </h2>
+1. Vaswani, Ashish, et al. "Attention is all you need." Advances in neural information processing systems 30 (2017).
+2. Radford, Alec, et al. "Improving language understanding by generative pre-training." (2018).
+3. Radford, Alec, et al. "Language models are unsupervised multitask learners." OpenAI blog 1.8 (2019): 9.
+4. Brown, Tom, et al. "Language models are few-shot learners." Advances in neural information processing systems 33 (2020): 1877-1901.
+5. Howard, Jeremy, and Sebastian Ruder. "Universal language model fine-tuning for text classification." arXiv preprint arXiv:1801.06146 (2018).
+6. Petroni, Fabio, et al. "Language models as knowledge bases?." arXiv preprint arXiv:1909.01066 (2019).
 
