@@ -1,4 +1,7 @@
 # MinimalGPT: The 'Tiniest and Simplest GPT Model'
+<img src='https://badgen.net/badge/license/MIT/blue'/> <img src='https://badgen.net/badge/stable/0.1/green?icon=github'/> <img src='https://badgen.net/badge/python/3.10/green'/> <img src='https://badgen.net/badge/Python-Script/TensorFlow/blue?icon=terminal'/> <img src='https://badgen.net/badge/AI-GPT/TensorFlow/purple?icon=terminal'/>
+
+
 <img src="https://user-images.githubusercontent.com/31654395/236275892-300762b4-0640-412a-b9f5-066d748499f2.png" alt="MinimalGPT Logo" width="20%">
 
 
