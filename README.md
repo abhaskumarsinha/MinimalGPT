@@ -200,6 +200,8 @@ Follow the example folder for Notebooks containing the samples.
 
 
 <h2> References/Further Reading </h2>
+
+
 1. Vaswani, Ashish, et al. "Attention is all you need." Advances in neural information processing systems 30 (2017).
 2. Radford, Alec, et al. "Improving language understanding by generative pre-training." (2018).
 3. Radford, Alec, et al. "Language models are unsupervised multitask learners." OpenAI blog 1.8 (2019): 9.
