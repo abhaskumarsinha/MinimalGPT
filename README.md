@@ -195,8 +195,8 @@ model = MinimalGPT(output_length = 200, gpt_input = 10, d_model = 128, h = 8, de
 <p align='justify'>The model implemented here differs a little bit in comparision to the original paper implementation. The matrix formed after concatenating the heads of the scaled dot-product output is multiplied by the matrix parameter of size key dimension x d_model. For practical purpose, this little tweak to reduce the number of parameter would lead to a little bit increase in performance due to trainable parameter optimization.</p>
 
 
-<h2> Results <h2>
-Follow the example folder for Notebooks containing the samples.
+<h2> Results </h2>
+<i>Follow the example folder for Notebooks containing the samples.</i>
 
 
 <h2> References/Further Reading </h2>
