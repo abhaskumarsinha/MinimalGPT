@@ -183,7 +183,7 @@ a glass of water?” “No, no, no!” She threw herself toward him, her hand fr
 
 <h4> Importing the model into a project </h4>
 
-<p align='justify'>Incorporating the trained models generated through the utilization of MinimalGPT.py into your project is a straightforward process facilitated by importing the MinimalGPT function and configuring it according to the desired specifications. This can be achieved by setting the parameters return_model_and_vectorizer = True or return_model_and_vectorizer_and_output = True within the inference_only = True (Inference Mode) framework. Additionally, the training, creation, and exportation of the model can be accomplished using a similar approach, paralleling the command-line mode. For a comprehensive illustration of these procedures, the accompanying Jupyter Notebook provides an exemplar demonstration.</p>
+<p align='justify'>Incorporating the trained models generated through the utilization of MinimalGPT.py into your project is a straightforward process facilitated by importing the MinimalGPT function and configuring it according to the desired specifications. This can be achieved by setting the parameters return_model_and_vectorizer = True or return_model_and_vectorizer_and_output = True within the inference_only = True (Inference Mode) framework. Additionally, the training, creation, and exportation of the model can be accomplished using a similar approach, paralleling the command-line mode. For a comprehensive illustration of these procedures, the accompanying <a href='https://github.com/abhaskumarsinha/MinimalGPT/blob/main/examples/models.ipynb'>Jupyter Notebook</a> provides an exemplar demonstration.</p>
 <code><pre>
 from MinimalGPT import MinimalGPT
 
@@ -223,7 +223,7 @@ _________________________________________________________________
 
 
 <h2> Results </h2>
-<i>Follow the example folder for Notebooks containing the samples.</i>
+<i>Follow the <a href='https://github.com/abhaskumarsinha/MinimalGPT/tree/main/examples'>example folder</a> for Notebooks containing the samples.</i>
 
 <h2> Troubleshooting </h2>
 Feel free to open tickets in the issue tab in case you encounter any error or have any specific feature request in mind.
