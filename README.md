@@ -189,6 +189,33 @@ from MinimalGPT import MinimalGPT
 
 
 model = MinimalGPT(output_length = 200, gpt_input = 10, d_model = 128, h = 8, decoder_stacks = 1, load_tokenizer = './models/tokenizer3.mgt', load_weights = './models/weights3.mgw', inference_only = True, return_model_and_vectorizer_and_output = True)
+model[0].summary()
+
+_________________________________________________________________
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 10)]              0         
+                                                                 
+ embedding (Embedding)       (None, 10, 128)           1826816   
+                                                                 
+ positional_embedding (Posit  (None, 10, 128)          0         
+ ionalEmbedding)                                                 
+                                                                 
+ decoder (Decoder)           (None, 10, 128)           37160     
+                                                                 
+ flatten (Flatten)           (None, 1280)              0         
+                                                                 
+ dense (Dense)               (None, 14273)             18283713  
+                                                                 
+ tf.nn.softmax (TFOpLambda)  (None, 14273)             0         
+                                                                 
+=================================================================
+Total params: 20,147,689
+Trainable params: 20,147,689
+Non-trainable params: 0
+_________________________________________________________________
 </pre></code>
 
 <h2> Implementation Specifications </h2>
