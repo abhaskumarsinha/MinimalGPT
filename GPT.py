@@ -21,6 +21,85 @@ def scaled_dot_product_attention(q, k, v):
     return output
 
 
+class LinearLayer(tf.keras.layers.Layer):
+    def __init__(self, ix, ox):
+        super().__init__()
+        self.ix = ix
+        self.ox = ox
+        
+    
+    def build(self, input_shapes):
+        self.w1 = self.add_weight(shape=(self.ix, self.ox))
+        self.b1 = self.add_weight(shape=(1, self.ox))
+    
+    def call(self, inputs):
+        bz, key = tf.shape(inputs)[0], tf.shape(inputs)[1]
+        inputs = tf.reshape(inputs, (-1, self.ix))
+        inputs = tf.matmul(inputs, self.w1) + self.b1
+        inputs = tf.reshape(inputs, (bz, key, self.ox))
+        return inputs
+    
+
+
+class split_heads(tf.keras.layers.Layer):
+    def __init__(self, num_heads = 10):
+        super().__init__()
+        self.num_heads = num_heads
+    
+    def call(self, inputs):
+        bz, key = tf.shape(inputs)[0], tf.shape(inputs)[1]
+        
+        inputs = tf.reshape(inputs, (bz, key, self.num_heads, -1))
+        inputs = tf.transpose(inputs, (0, 2, 1, 3))
+        
+        return inputs
+
+    
+class merge_heads(tf.keras.layers.Layer):
+    def __init__(self):
+        super().__init__()
+    
+    def call(self, inputs):
+        bz, key = tf.shape(inputs)[0], tf.shape(inputs)[2]
+        
+        inputs = tf.transpose(inputs, (0, 2, 1, 3))
+        inputs = tf.reshape(inputs, (bz, key, -1))
+        return inputs
+
+    
+
+class GPT_Attention(tf.keras.layers.Layer):
+    
+    def __init__(self, ix, ox, num_heads):
+        super().__init__()
+        self.ix = ix
+        self.ox = ox
+        self.num_heads = num_heads
+        self.linear1 = LinearLayer(self.ix, self.ox * 3)
+        self.split = split_heads(num_heads = self.num_heads)
+        self.merge = merge_heads()
+        self.linear2 = LinearLayer(self.ox, self.ix)
+        
+        if self.ox % self.num_heads != 0:
+            raise ValueError('The value ox = '+ str(self.ox) +' SHOULD be divisible by number of heads provided')
+    
+    def call(self, inputs):
+        if len(inputs) > 0:
+            inputs = inputs[0]
+        inputs = self.linear1(inputs)
+        k, q, v = tf.split(inputs, 3, axis = -1)
+        k = self.split(k)
+        q = self.split(q)
+        v = self.split(v)
+        #k, q, v = tf.split(inputs, 3, axis = -1)
+        inputs = scaled_dot_product_attention(k, q, v)
+        inputs = self.merge(inputs)
+        inputs = self.linear2(inputs)
+               
+        return inputs
+
+
+
 class MultiHeadAttention(tf.keras.layers.Layer):
     def __init__(self, num_heads = 8, key_dim = 64, key_embedding = 512):
         super(MultiHeadAttention, self).__init__()
@@ -61,13 +140,16 @@ class MultiHeadAttention(tf.keras.layers.Layer):
         return output
         
 class Decoder(tf.keras.layers.Layer):
-    def __init__(self, num_heads = 8, key_dim = 64, key_embedding = 512):
+    def __init__(self, num_heads = 8, key_dim = 64, key_embedding = 512, GPT_attention = False):
         super(Decoder, self).__init__()
         
         self.num_heads = num_heads
         self.key_dim = key_dim
         self.key_embedding = key_embedding
-        self.attention = MultiHeadAttention(num_heads = num_heads, key_dim = key_dim, key_embedding = key_embedding)
+        if GPT_attention:
+            self.attention = GPT_Attention(key_embedding, key_embedding, num_heads)
+        else:
+            self.attention = MultiHeadAttention(num_heads = num_heads, key_dim = key_dim, key_embedding = key_embedding)
         self.normalize1 = tf.keras.layers.LayerNormalization(axis = -2)
         self.normalize2 = tf.keras.layers.LayerNormalization(axis = -2)
         
