@@ -1,3 +1,6 @@
+# ⚠️ All the support for MinimalGPT has ended, and is depreciated! Use [Corpus2GPT](https://github.com/abhaskumarsinha/Corpus2GPT) in the near future!
+https://github.com/abhaskumarsinha/Corpus2GPT
+
 # MinimalGPT: The 'Tiniest and Simplest GPT Model'
 <img src='https://badgen.net/badge/license/MIT/blue'/> <img src='https://badgen.net/badge/stable/2.0.0/green?icon=github'/> <img src='https://badgen.net/badge/python/3.10/green'/> <img src='https://badgen.net/badge/Python-Script/TensorFlow/blue?icon=terminal'/> <img src='https://badgen.net/badge/AI-GPT/TensorFlow/purple?icon=terminal'/>
 
